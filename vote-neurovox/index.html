@@ -1127,33 +1127,65 @@
       previewImg.src = '';
     });
 
-    // ── Form submission via AJAX (FormSubmit.co with file upload) ──
+    // ── Form submission: upload image to freeimage.host, then send data to FormSubmit.co ──
     const form = document.getElementById('vote-form');
     const submitBtn = document.getElementById('submit-btn');
+
+    async function uploadImage(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = async () => {
+          try {
+            const base64 = reader.result.split(',')[1];
+            const imgForm = new FormData();
+            imgForm.append('source', base64);
+            imgForm.append('format', 'json');
+            const res = await fetch('https://freeimage.host/api/1/upload?key=6d207e02198a847aa98d0a2a901485a5', {
+              method: 'POST',
+              body: imgForm,
+            });
+            const data = await res.json();
+            if (data.status_code === 200 && data.image && data.image.url) {
+              resolve(data.image.url);
+            } else {
+              reject(new Error('Falha no upload da imagem'));
+            }
+          } catch (e) { reject(e); }
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Enviando...';
+      submitBtn.textContent = 'Enviando imagem...';
 
       try {
-        const formData = new FormData();
-        formData.append('name', form.querySelector('[name="name"]').value);
-        formData.append('email', form.querySelector('[name="email"]').value);
-        formData.append('whatsapp', form.querySelector('[name="whatsapp"]').value);
-        formData.append('_subject', 'Nova prova de voto - NeuroVox');
-        formData.append('_template', 'table');
-        formData.append('_captcha', 'false');
-
+        let imageUrl = '';
         const file = fileInput.files[0];
         if (file) {
-          formData.append('attachment', file, file.name);
+          imageUrl = await uploadImage(file);
         }
+
+        submitBtn.textContent = 'Enviando dados...';
 
         const response = await fetch(form.action, {
           method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            name: form.querySelector('[name="name"]').value,
+            email: form.querySelector('[name="email"]').value,
+            whatsapp: form.querySelector('[name="whatsapp"]').value,
+            print_do_voto: imageUrl,
+            _subject: 'Nova prova de voto - NeuroVox',
+            _template: 'table',
+            _captcha: 'false',
+          }),
         });
 
         const result = await response.json();
