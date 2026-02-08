@@ -971,10 +971,13 @@
       <div class="form-card">
         <form
           id="vote-form"
-          action="https://app.forminit.com/f/tz2uixmu9py"
+          action="https://formsubmit.co/ajax/renanacademic21@gmail.com"
           method="POST"
-          enctype="multipart/form-data"
         >
+          <input type="hidden" name="_subject" value="Nova prova de voto - NeuroVox" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" id="screenshot-data" name="screenshot_base64" value="" />
 
           <div class="form-group">
             <label for="name">Nome completo <span class="required">*</span></label>
@@ -1128,7 +1131,7 @@
     // ── Form submission via AJAX (FormSubmit.co) ──
     const form = document.getElementById('vote-form');
     const submitBtn = document.getElementById('submit-btn');
-    const successMessage = document.getElementById('success-message');
+    const screenshotDataField = document.getElementById('screenshot-data');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -1136,13 +1139,40 @@
       submitBtn.textContent = 'Enviando...';
 
       try {
-        const formData = new FormData(form);
+        // Convert image to base64 and put in hidden field
+        const file = fileInput.files[0];
+        if (file) {
+          const base64 = await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+          });
+          screenshotDataField.value = base64;
+        }
+
+        // Build JSON payload (exclude the file input)
+        const data = {
+          name: form.querySelector('[name="name"]').value,
+          email: form.querySelector('[name="email"]').value,
+          whatsapp: form.querySelector('[name="whatsapp"]').value,
+          screenshot_base64: screenshotDataField.value,
+          _subject: 'Nova prova de voto - NeuroVox',
+          _template: 'table',
+          _captcha: 'false',
+        };
+
         const response = await fetch(form.action, {
           method: 'POST',
-          body: formData,
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify(data),
         });
 
-        if (response.ok) {
+        const result = await response.json();
+        if (result.success === 'true' || result.success === true) {
           window.location.href = '/success.html';
         } else {
           throw new Error('Erro no envio');
