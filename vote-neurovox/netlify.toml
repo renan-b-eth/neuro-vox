@@ -1,3 +1,9 @@
 [build]
   command = "echo 'Build complete'"
   publish = "."
+
+[[redirects]]
+  from = "/api/votes"
+  to = "https://v0-v0prompttoproduction2026.vercel.app/api/builds?search=renan-b-eth"
+  status = 200
+  force = true

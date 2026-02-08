@@ -411,7 +411,7 @@
 
     async function fetchVotes() {
       try {
-        const res = await fetch('https://v0-v0prompttoproduction2026.vercel.app/api/builds?search=renan-b-eth');
+        const res = await fetch('/api/votes');
         const data = await res.json();
         const builds = Array.isArray(data) ? data : (data.builds || []);
         if (builds.length > 0) {
