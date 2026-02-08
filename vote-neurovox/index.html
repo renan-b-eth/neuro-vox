@@ -977,7 +977,6 @@
           <input type="hidden" name="_subject" value="Nova prova de voto - NeuroVox" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" id="screenshot-data" name="screenshot_base64" value="" />
 
           <div class="form-group">
             <label for="name">Nome completo <span class="required">*</span></label>
@@ -1128,10 +1127,9 @@
       previewImg.src = '';
     });
 
-    // ── Form submission via AJAX (FormSubmit.co) ──
+    // ── Form submission via AJAX (FormSubmit.co with file upload) ──
     const form = document.getElementById('vote-form');
     const submitBtn = document.getElementById('submit-btn');
-    const screenshotDataField = document.getElementById('screenshot-data');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -1139,36 +1137,23 @@
       submitBtn.textContent = 'Enviando...';
 
       try {
-        // Convert image to base64 and put in hidden field
+        const formData = new FormData();
+        formData.append('name', form.querySelector('[name="name"]').value);
+        formData.append('email', form.querySelector('[name="email"]').value);
+        formData.append('whatsapp', form.querySelector('[name="whatsapp"]').value);
+        formData.append('_subject', 'Nova prova de voto - NeuroVox');
+        formData.append('_template', 'table');
+        formData.append('_captcha', 'false');
+
         const file = fileInput.files[0];
         if (file) {
-          const base64 = await new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = () => resolve(reader.result);
-            reader.onerror = reject;
-            reader.readAsDataURL(file);
-          });
-          screenshotDataField.value = base64;
+          formData.append('attachment', file, file.name);
         }
-
-        // Build JSON payload (exclude the file input)
-        const data = {
-          name: form.querySelector('[name="name"]').value,
-          email: form.querySelector('[name="email"]').value,
-          whatsapp: form.querySelector('[name="whatsapp"]').value,
-          screenshot_base64: screenshotDataField.value,
-          _subject: 'Nova prova de voto - NeuroVox',
-          _template: 'table',
-          _captcha: 'false',
-        };
 
         const response = await fetch(form.action, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-          },
-          body: JSON.stringify(data),
+          body: formData,
+          headers: { 'Accept': 'application/json' },
         });
 
         const result = await response.json();
