@@ -1148,8 +1148,7 @@
 
         const result = await response.json();
         if (result.success) {
-          form.style.display = 'none';
-          successMessage.style.display = 'block';
+          window.location.href = '/success.html';
         } else {
           throw new Error('Erro no envio');
         }
