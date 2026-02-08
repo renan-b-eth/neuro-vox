@@ -971,13 +971,10 @@
       <div class="form-card">
         <form
           id="vote-form"
-          action="https://formsubmit.co/ajax/renanacademic21@gmail.com"
+          action="https://app.forminit.com/f/tz2uixmu9py"
           method="POST"
           enctype="multipart/form-data"
         >
-          <input type="hidden" name="_subject" value="Nova prova de voto - NeuroVox" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
 
           <div class="form-group">
             <label for="name">Nome completo <span class="required">*</span></label>
@@ -1143,11 +1140,9 @@
         const response = await fetch(form.action, {
           method: 'POST',
           body: formData,
-          headers: { 'Accept': 'application/json' },
         });
 
-        const result = await response.json();
-        if (result.success) {
+        if (response.ok) {
           window.location.href = '/success.html';
         } else {
           throw new Error('Erro no envio');
