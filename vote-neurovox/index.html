@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vote no NeuroVox &mdash; Ganhe uma Mentoria Exclusiva | Rendey LLC</title>
+
+  <meta property="og:title" content="Vote no NeuroVox &mdash; Ganhe uma Mentoria Exclusiva" />
+  <meta property="og:description" content="Vote no NeuroVox no hackathon v0 2026 e concorra a uma conversa exclusiva com a Rendey LLC — empresa de tecnologia dos EUA que constrói produtos de IA, SaaS e plataformas globais." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://neurovox26.netlify.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vote no NeuroVox &mdash; Ganhe uma Mentoria Exclusiva" />
+  <meta name="twitter:description" content="Vote e concorra a uma sessão exclusiva com a Rendey LLC — U.S. tech company building AI products, SaaS &amp; global platforms." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple-50: #faf5ff; --purple-100: #f3e8ff; --purple-200: #e9d5ff;
+      --purple-400: #c084fc; --purple-500: #a855f7; --purple-600: #9333ea;
+      --purple-700: #7c3aed; --purple-800: #6b21a8; --purple-900: #581c87;
+      --zinc-50: #fafafa; --zinc-100: #f4f4f5; --zinc-200: #e4e4e7;
+      --zinc-300: #d4d4d8; --zinc-400: #a1a1aa; --zinc-500: #71717a;
+      --zinc-600: #52525b; --zinc-700: #3f3f46; --zinc-800: #27272a;
+      --zinc-850: #1e1e21; --zinc-900: #18181b; --zinc-950: #09090b;
+      --green-400: #4ade80; --green-500: #22c55e; --green-900: #14532d;
+      --red-400: #f87171; --red-500: #ef4444; --red-900: #7f1d1d;
+      --amber-400: #fbbf24; --amber-500: #f59e0b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--zinc-950);
+      color: var(--zinc-50);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,58,237,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(168,85,247,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-inner { position: relative; max-width: 680px; margin: 0 auto; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 9999px;
+      padding: 0.3rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--purple-400);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green-400);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, var(--purple-400), var(--purple-200));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--zinc-400);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.3rem 0.85rem;
+      border-radius: 9999px;
+      border: 1px solid var(--zinc-700);
+      color: var(--zinc-300);
+      background: var(--zinc-900);
+    }
+
+    .tag.accent {
+      background: rgba(124,58,237,0.12);
+      border-color: rgba(124,58,237,0.35);
+      color: var(--purple-400);
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: var(--purple-700);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 0 24px rgba(124,58,237,0.25);
+    }
+
+    .hero-cta:hover {
+      background: var(--purple-600);
+      transform: translateY(-2px);
+      box-shadow: 0 0 32px rgba(124,58,237,0.4);
+    }
+
+    .hero-cta svg { width: 18px; height: 18px; }
+
+    /* ── SECTIONS ── */
+    .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+    section { padding: 3rem 0; }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--purple-400);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-desc {
+      color: var(--zinc-400);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .divider {
+      border: none;
+      height: 1px;
+      background: var(--zinc-800);
+      margin: 0;
+    }
+
+    /* ── REWARD CARD ── */
+    .reward-card {
+      background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(168,85,247,0.04));
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .reward-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .reward-card p {
+      color: var(--zinc-300);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .reward-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .reward-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--zinc-300);
+    }
+
+    .reward-list li .icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(34,197,94,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .reward-list li .icon svg {
+      width: 12px;
+      height: 12px;
+      color: var(--green-400);
+    }
+
+    /* ── AUTHORITY ── */
+    .authority-section {
+      background: var(--zinc-900);
+      border: 1px solid var(--zinc-800);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .authority-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--zinc-800);
+    }
+
+    .authority-logo {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #111 0%, #222 100%);
+      border: 1px solid var(--zinc-700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #fff;
+      letter-spacing: -0.03em;
+    }
+
+    .authority-header-info h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.15rem;
+    }
+
+    .authority-header-info .tagline {
+      font-size: 0.8rem;
+      color: var(--zinc-400);
+    }
+
+    .authority-header-info .tagline strong {
+      color: var(--zinc-300);
+    }
+
+    .authority-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .authority-stat {
+      text-align: center;
+      padding: 0.75rem 0.5rem;
+      background: var(--zinc-850);
+      border-radius: 10px;
+      border: 1px solid var(--zinc-800);
+    }
+
+    .authority-stat .stat-value {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--zinc-100);
+      margin-bottom: 0.15rem;
+    }
+
+    .authority-stat .stat-label {
+      font-size: 0.65rem;
+      color: var(--zinc-500);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .authority-desc {
+      font-size: 0.88rem;
+      color: var(--zinc-400);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .authority-desc a {
+      color: var(--purple-400);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .authority-desc a:hover { text-decoration: underline; }
+
+    .authority-products {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .authority-product {
+      padding: 1rem;
+      background: var(--zinc-850);
+      border: 1px solid var(--zinc-800);
+      border-radius: 10px;
+    }
+
+    .authority-product h5 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--zinc-100);
+    }
+
+    .authority-product p {
+      font-size: 0.75rem;
+      color: var(--zinc-500);
+      line-height: 1.4;
+    }
+
+    .authority-capabilities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .capability-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.25rem 0.7rem;
+      border-radius: 6px;
+      background: rgba(124,58,237,0.08);
+      border: 1px solid rgba(124,58,237,0.2);
+      color: var(--purple-400);
+    }
+
+    .authority-verify {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      background: rgba(34,197,94,0.06);
+      border: 1px solid rgba(34,197,94,0.15);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: var(--zinc-400);
+    }
+
+    .authority-verify svg {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      color: var(--green-400);
+    }
+
+    .authority-verify a {
+      color: var(--green-400);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .authority-verify a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .authority-stats { grid-template-columns: repeat(3, 1fr); }
+      .authority-products { grid-template-columns: 1fr; }
+    }
+
+    /* ── STEPS ── */
+    .steps-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .step-card {
+      background: var(--zinc-900);
+      border: 1px solid var(--zinc-800);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .step-card:hover { border-color: var(--zinc-700); }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--purple-700);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .step-card p {
+      font-size: 0.85rem;
+      color: var(--zinc-400);
+      line-height: 1.5;
+    }
+
+    .step-card code {
+      background: var(--zinc-800);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: var(--purple-400);
+    }
+
+    /* ── FORM ── */
+    .form-card {
+      background: var(--zinc-900);
+      border: 1px solid var(--zinc-800);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--zinc-200);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group label .required {
+      color: var(--red-400);
+      margin-left: 2px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"] {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      background: var(--zinc-850);
+      border: 1px solid var(--zinc-700);
+      border-radius: 10px;
+      color: var(--zinc-50);
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus {
+      border-color: var(--purple-700);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.15);
+    }
+
+    .form-group input::placeholder { color: var(--zinc-600); }
+
+    /* ── FILE UPLOAD ── */
+    .upload-area {
+      position: relative;
+      border: 2px dashed var(--zinc-700);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .upload-area:hover, .upload-area.dragover {
+      border-color: var(--purple-700);
+      background: rgba(124,58,237,0.05);
+    }
+
+    .upload-area input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .upload-area .upload-icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 0.75rem;
+      border-radius: 10px;
+      background: rgba(124,58,237,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .upload-area .upload-icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--purple-400);
+    }
+
+    .upload-area .upload-text {
+      font-size: 0.9rem;
+      color: var(--zinc-300);
+      margin-bottom: 0.25rem;
+    }
+
+    .upload-area .upload-hint {
+      font-size: 0.75rem;
+      color: var(--zinc-500);
+    }
+
+    .upload-preview {
+      display: none;
+      margin-top: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--zinc-700);
+    }
+
+    .upload-preview img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      background: var(--zinc-850);
+    }
+
+    .upload-preview .file-name {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      color: var(--zinc-400);
+      background: var(--zinc-850);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .upload-preview .remove-btn {
+      background: none;
+      border: none;
+      color: var(--red-400);
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* ── WARNING ── */
+    .warning-box {
+      background: rgba(245,158,11,0.08);
+      border: 1px solid rgba(245,158,11,0.25);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .warning-box .warning-icon {
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      margin-top: 1px;
+    }
+
+    .warning-box p {
+      font-size: 0.85rem;
+      color: var(--amber-400);
+      line-height: 1.5;
+    }
+
+    .warning-box strong { color: var(--amber-400); }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: block;
+      width: 100%;
+      padding: 0.85rem;
+      background: var(--purple-700);
+      color: #fff;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 0 20px rgba(124,58,237,0.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--purple-600);
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(124,58,237,0.35);
+    }
+
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.75rem;
+      background: transparent;
+      color: var(--purple-400);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(124,58,237,0.08);
+      border-color: rgba(124,58,237,0.5);
+    }
+
+    .btn-outline svg { width: 16px; height: 16px; }
+
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    /* ── SUCCESS STATE ── */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .success-message .check-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(34,197,94,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+
+    .success-message .check-circle svg {
+      width: 32px;
+      height: 32px;
+      color: var(--green-400);
+    }
+
+    .success-message h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .success-message p {
+      color: var(--zinc-400);
+      font-size: 0.9rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-top: 1px solid var(--zinc-800);
+      margin-top: 2rem;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--zinc-500);
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: var(--zinc-400);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover { color: var(--purple-400); text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .hero { padding: 2rem 1rem 2rem; }
+      .container { padding: 0 1rem; }
+      .reward-card, .form-card { padding: 1.5rem; }
+      .authority-header { flex-direction: column; text-align: center; }
+      .btn-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════ HERO ════════════════ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Hackathon v0 &mdash; Prompt to Production 2026
+      </div>
+
+      <h1>
+        Vote no <span class="gradient">NeuroVox</span><br />
+        e ganhe uma recompensa exclusiva
+      </h1>
+
+      <p class="hero-desc">
+        Detecte sinais precoces de declínio cognitivo pela voz, baseado em pesquisas do
+        <strong style="color:var(--zinc-200)">MIT CSAIL &amp; Harvard Medical School</strong>.
+      </p>
+
+      <div class="hero-tags">
+        <span class="tag accent">Product</span>
+        <span class="tag">@renan-b-eth</span>
+        <span class="tag">IA &amp; HealthTech</span>
+        <span class="tag">MIT CSAIL</span>
+      </div>
+
+      <a
+        href="https://v0-v0prompttoproduction2026.vercel.app/browse"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hero-cta"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+        Votar agora no Hackathon
+      </a>
+    </div>
+  </header>
+
+  <hr class="divider" />
+
+  <!-- ════════════════ RECOMPENSA ════════════════ -->
+  <section>
+    <div class="container">
+      <p class="section-label">Recompensa</p>
+      <h2 class="section-title">O que você ganha votando?</h2>
+      <p class="section-desc">
+        Ao votar e comprovar seu voto, você concorre a uma recompensa real com nosso time.
+      </p>
+
+      <div class="reward-card">
+        <h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="var(--purple-400)"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-4.5A3.375 3.375 0 0012.75 10.5h-1.5A3.375 3.375 0 007.5 14.25v4.5m9-9V6a2.25 2.25 0 00-2.25-2.25h-1.5A2.25 2.25 0 0010.5 6v3.75" /></svg>
+          Sessão exclusiva com a Rendey LLC
+        </h3>
+        <p>
+          Uma conversa direta com o time de hackathon da
+          <strong style="color:var(--zinc-100)">Rendey LLC</strong>
+          &mdash; empresa de tecnologia dos EUA que constrói produtos de IA e SaaS para o mercado global:
+        </p>
+        <ul class="reward-list">
+          <li>
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></span>
+            Brainstorm de futuros projetos e colaborações em IA
+          </li>
+          <li>
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></span>
+            Desenvolvimento de MVPs com engenharia moderna e AI-ready
+          </li>
+          <li>
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></span>
+            Produtos finais para o mercado global com base corporativa nos EUA
+          </li>
+          <li>
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></span>
+            Networking direto com quem constrói SaaS, IA e infraestrutura financeira
+          </li>
+        </ul>
+      </div>
+
+      <!-- Rendey LLC Authority -->
+      <div class="authority-section">
+        <div class="authority-header">
+          <div class="authority-logo">R</div>
+          <div class="authority-header-info">
+            <h4>Rendey LLC</h4>
+            <p class="tagline"><strong>AI &middot; SaaS &middot; Global Products</strong> &mdash; U.S.-registered</p>
+          </div>
+        </div>
+
+        <div class="authority-stats">
+          <div class="authority-stat">
+            <div class="stat-value">EUA</div>
+            <div class="stat-label">Sede</div>
+          </div>
+          <div class="authority-stat">
+            <div class="stat-value">2024</div>
+            <div class="stat-label">Fundada</div>
+          </div>
+          <div class="authority-stat">
+            <div class="stat-value">Global</div>
+            <div class="stat-label">Mercado</div>
+          </div>
+        </div>
+
+        <p class="authority-desc">
+          A Rendey LLC é uma empresa de tecnologia registrada nos Estados Unidos (New Mexico) que constrói
+          <strong style="color:var(--zinc-200)">produtos de IA, SaaS modernos e plataformas globais</strong>
+          &mdash; incluindo marcas educacionais que atendem o Brasil e o mundo.
+          <br /><br />
+          <a href="https://www.rendey.store" target="_blank" rel="noopener noreferrer">www.rendey.store</a>
+          &middot; <a href="https://www.rendey.store/contact" target="_blank" rel="noopener noreferrer">Contato</a>
+          &middot; <a href="https://www.rendey.store/company" target="_blank" rel="noopener noreferrer">Sobre a empresa</a>
+        </p>
+
+        <div class="authority-products">
+          <div class="authority-product">
+            <h5>DolarizandoSe</h5>
+            <p>Plataforma educacional para empreendedores brasileiros construírem negócios globais.</p>
+          </div>
+          <div class="authority-product">
+            <h5>DolarizandoSe Pay</h5>
+            <p>Infraestrutura de wallet self-custody conectando pagamentos locais (Pix) a stablecoins (USDT).</p>
+          </div>
+        </div>
+
+        <div class="authority-capabilities">
+          <span class="capability-tag">AI-ready Products</span>
+          <span class="capability-tag">Compliance-aware UX</span>
+          <span class="capability-tag">Global-first Execution</span>
+          <span class="capability-tag">Stripe-ready</span>
+          <span class="capability-tag">Scalable Systems</span>
+        </div>
+
+        <div class="authority-verify">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+          <span>
+            Empresa verificável &mdash; Boise, ID 83716, United States &middot;
+            <a href="https://portal.sos.state.nm.us/BFS/online/CorporationBusinessSearch" target="_blank" rel="noopener noreferrer">Verificar registro (NM Secretary of State)</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ════════════════ COMO VOTAR ════════════════ -->
+  <section>
+    <div class="container">
+      <p class="section-label">Passo a passo</p>
+      <h2 class="section-title">Como participar</h2>
+      <p class="section-desc">
+        Siga os passos abaixo, tire um print do seu voto e preencha o formulário.
+      </p>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div>
+            <h4>Acesse o hackathon</h4>
+            <p>Clique no botão "Votar agora" acima para abrir a página do hackathon v0.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div>
+            <h4>Busque o projeto</h4>
+            <p>No campo de busca, digite <code>renan-b-eth</code> e pressione Enter.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div>
+            <h4>Vote no NeuroVox</h4>
+            <p>Faça login com sua conta Vercel (grátis) e clique em <strong style="color:var(--zinc-200)">Vote</strong>.</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div>
+            <h4>Tire um print e envie abaixo</h4>
+            <p>Capture a tela mostrando que você votou e preencha o formulário para concorrer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ════════════════ FORMULÁRIO ════════════════ -->
+  <section id="form-section">
+    <div class="container">
+      <p class="section-label">Comprove seu voto</p>
+      <h2 class="section-title">Envie sua prova de voto</h2>
+      <p class="section-desc">
+        Preencha seus dados e envie o print do voto para participar do sorteio.
+      </p>
+
+      <div class="form-card">
+        <!-- Netlify Forms: data-netlify="true" habilita o form no Netlify -->
+        <form
+          id="vote-form"
+          name="vote-proof"
+          method="POST"
+          action="/success.html"
+          data-netlify="true"
+          enctype="multipart/form-data"
+        >
+          <input type="hidden" name="form-name" value="vote-proof" />
+
+          <div class="form-group">
+            <label for="name">Nome completo <span class="required">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Seu nome" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp <span class="required">*</span></label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="+55 11 99999-9999" required />
+          </div>
+
+          <div class="form-group">
+            <label>Print do voto <span class="required">*</span></label>
+            <div class="upload-area" id="upload-area">
+              <input type="file" id="screenshot" name="screenshot" accept="image/*" required />
+              <div class="upload-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
+              </div>
+              <p class="upload-text">Clique ou arraste o print aqui</p>
+              <p class="upload-hint">PNG, JPG ou WEBP &mdash; max 10MB</p>
+            </div>
+            <div class="upload-preview" id="upload-preview">
+              <img id="preview-img" src="" alt="Preview" />
+              <div class="file-name">
+                <span id="file-name-text"></span>
+                <button type="button" class="remove-btn" id="remove-file">Remover</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="warning-box">
+            <span class="warning-icon">&#9888;</span>
+            <p>
+              <strong>Atenção:</strong> Todas as prints serão validadas manualmente.
+              Caso a print seja falsa ou manipulada, você será
+              <strong>desclassificado</strong> deste sorteio.
+            </p>
+          </div>
+
+          <button type="submit" class="btn-primary" id="submit-btn">
+            Enviar prova de voto
+          </button>
+        </form>
+
+        <!-- Success state -->
+        <div class="success-message" id="success-message">
+          <div class="check-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3>Enviado com sucesso!</h3>
+          <p>Sua prova de voto foi recebida. Iremos validar e entrar em contato pelo WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <a
+          href="https://v0-v0prompttoproduction2026.vercel.app/browse"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-outline"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+          Ir para o Hackathon
+        </a>
+        <a
+          href="https://eco-ideiathon.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-outline"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.64 0 8.577 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.64 0-8.577-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          Ver projeto ao vivo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer>
+    <p>
+      <strong style="color:var(--zinc-300)">NeuroVox</strong> &mdash;
+      Hackathon v0 Prompt to Production 2026<br />
+      Uma iniciativa <a href="https://www.rendey.store" target="_blank">Rendey LLC</a>
+      &middot; AI &middot; SaaS &middot; Global Products<br />
+      <span style="color:var(--zinc-600)">U.S.-registered &middot; Founded 2024 &middot; New Mexico</span>
+    </p>
+  </footer>
+
+  <!-- ════════════════ SCRIPTS ════════════════ -->
+  <script>
+    // ── File upload preview ──
+    const uploadArea = document.getElementById('upload-area');
+    const fileInput = document.getElementById('screenshot');
+    const previewContainer = document.getElementById('upload-preview');
+    const previewImg = document.getElementById('preview-img');
+    const fileNameText = document.getElementById('file-name-text');
+    const removeBtn = document.getElementById('remove-file');
+
+    fileInput.addEventListener('change', handleFile);
+
+    uploadArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      uploadArea.classList.add('dragover');
+    });
+
+    uploadArea.addEventListener('dragleave', () => {
+      uploadArea.classList.remove('dragover');
+    });
+
+    uploadArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadArea.classList.remove('dragover');
+      if (e.dataTransfer.files.length) {
+        fileInput.files = e.dataTransfer.files;
+        handleFile();
+      }
+    });
+
+    function handleFile() {
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      if (file.size > 10 * 1024 * 1024) {
+        alert('Arquivo muito grande. Tamanho máximo: 10MB.');
+        fileInput.value = '';
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        previewImg.src = e.target.result;
+        fileNameText.textContent = file.name;
+        previewContainer.style.display = 'block';
+        uploadArea.style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    removeBtn.addEventListener('click', () => {
+      fileInput.value = '';
+      previewContainer.style.display = 'none';
+      uploadArea.style.display = 'block';
+      previewImg.src = '';
+    });
+
+    // ── Form submission (native) ──
+    const form = document.getElementById('vote-form');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', () => {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+    });
+  </script>
+</body>
+</html>

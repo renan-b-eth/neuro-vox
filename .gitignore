@@ -1,0 +1,19 @@
+# Local Netlify folder
+.netlify
+
+# Python virtual environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Debug files
+debug_*.png
+debug_*.html
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+*.log
